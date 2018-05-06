@@ -13,7 +13,7 @@ struct Repository : JSONDecodable {
     let id: Int
     let name: String
     let fullName: String
-    let owener: User
+    let owner: User
     
     init(json: Any) throws {
         guard let dictionary = json as? [String : Any] else {
@@ -39,7 +39,7 @@ struct Repository : JSONDecodable {
         self.id = id
         self.name = name
         self.fullName = fullName
-        self.owener = try User(json: ownerObject)
+        self.owner = try User(json: ownerObject)
         //throwsキーワードが指定された処理を呼び出す時には try が必要
         //Userのイニシャライズにはthrowsを使っている
     }
